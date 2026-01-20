@@ -71,8 +71,9 @@
   font-size: 12px;   
   font-weight: 400;
   margin-top: 40px;
-  margin-left:-100px;
-  color: #545659;   
+  margin-left:-105px;
+  color: #545659;  
+
    
 }
     </style>
@@ -84,8 +85,13 @@
             <nav class="flex items-center justify-between h-16 gap-4">
                 <a href="#" class="flex items-center gap-3 text-xl font-bold text-gray-900 dark:text-white">
     <img src="logo.png" alt="Haakwin Logo" class="h-11 w-11 object-contain">
-    <span>Haakwin</span>
-   <h6 class="tagline">Create..Explore..Succeed</h6>
+     <span>Haakwin</span>
+  <h6 class="tagline text-gray-700 dark:text-white text-xs p-2 -ml-15">
+  Create..Explore..Succeed
+</h6>
+
+</a>
+
 </a>
                 <div class="hidden md:flex items-center gap-1">
                     <a href="#services" class="px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white rounded-md transition-colors">Services</a>
@@ -824,7 +830,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     menuBtn.addEventListener('click', (e) => {
-        e.stopPropagation(); // VERY IMPORTANT
+        e.stopPropagation(); 
         mobileMenu.classList.contains('hidden') ? openMenu() : closeMenu();
     });
 
@@ -842,6 +848,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
+function toggleTheme() {
+    const html = document.documentElement;
+
+    if (html.classList.contains('dark')) {
+      html.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    } else {
+      html.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    }
+  }
+  (function () {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      document.documentElement.classList.add('dark');
+    }
+  })();
 </script>
 
 </body>
